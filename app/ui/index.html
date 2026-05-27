@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Assistant</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Assistant context">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">AI</div>
+          <div>
+            <h1>Personal Assistant</h1>
+            <p id="connectionStatus">Checking server</p>
+          </div>
+        </div>
+
+        <section class="panel">
+          <h2>Phase</h2>
+          <div class="phase-row">
+            <span>Groq Chat</span>
+            <strong>Ready</strong>
+          </div>
+          <div class="phase-row muted">
+            <span>Tools</span>
+            <strong>Ready</strong>
+          </div>
+          <div class="phase-row">
+            <span>Reminders</span>
+            <strong>Local</strong>
+          </div>
+          <div class="phase-row muted">
+            <span>Google Calendar</span>
+            <strong id="calendarPhaseStatus">Check</strong>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title-row">
+            <h2>Google Calendar</h2>
+            <a id="calendarLogin" class="mini-link" href="/google-calendar/login">Login</a>
+          </div>
+          <p id="calendarStatus" class="status-readout">Checking connection</p>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title-row">
+            <h2>Local Time</h2>
+            <button id="notifyButton" class="mini-button" type="button">Notify</button>
+          </div>
+          <p id="localTime" class="time-readout">Loading</p>
+        </section>
+
+        <section class="panel quick-panel">
+          <h2>Quick Prompts</h2>
+          <button class="quick-prompt" type="button">Help me plan today</button>
+          <button class="quick-prompt" type="button">Remind me in 20 minutes to drink water</button>
+          <button class="quick-prompt" type="button">List my scheduled reminders</button>
+        </section>
+
+        <section class="panel session-panel">
+          <div class="panel-title-row">
+            <h2>Past Chats</h2>
+            <button id="newChat" class="mini-button" type="button">New</button>
+          </div>
+          <div id="sessions" class="sessions"></div>
+        </section>
+      </aside>
+
+      <section class="chat-area" aria-label="Chat">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Phase 1</p>
+            <h2>Assistant Chat</h2>
+          </div>
+          <button id="clearChat" class="icon-button" type="button" title="Clear chat" aria-label="Clear chat">
+            <span aria-hidden="true">X</span>
+          </button>
+        </header>
+
+        <div id="messages" class="messages" aria-live="polite">
+          <article class="message assistant">
+            <div class="bubble">
+              <p>Ready. Tell me what you want to plan, write, or reason through.</p>
+            </div>
+          </article>
+        </div>
+
+        <form id="chatForm" class="composer">
+          <textarea
+            id="messageInput"
+            name="message"
+            rows="1"
+            maxlength="20000"
+            autocomplete="off"
+            placeholder="Message your assistant"
+            required
+          ></textarea>
+          <button id="sendButton" class="send-button" type="submit" title="Send" aria-label="Send">
+            <span aria-hidden="true">Send</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>

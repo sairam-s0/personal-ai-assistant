@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+groq
+pydantic
+pydantic-settings
+python-dotenv
+tiktoken
+httpx
+pytest
+google-api-python-client
+google-auth
+google-auth-oauthlib
